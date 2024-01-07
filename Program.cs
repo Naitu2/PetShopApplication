@@ -5,7 +5,7 @@ using PetShopApplication.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IRepository, PetShopRepository>();
+builder.Services.AddTransient<IPetShopRepository, PetShopRepository>();
 string connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"]!;
 builder.Services.AddDbContext<PetShopContext>(options => options.UseSqlServer(connectionString));
 var app = builder.Build();

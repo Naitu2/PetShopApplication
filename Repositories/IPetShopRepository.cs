@@ -1,6 +1,6 @@
 ﻿namespace PetShopApplication.Repositories
 {
-    public interface IRepository
+    public interface IPetShopRepository
     {
     }
 }
