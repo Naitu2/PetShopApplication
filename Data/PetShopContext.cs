@@ -24,11 +24,11 @@ namespace PetShopApplication.Data
 
             modelBuilder.Entity<Animal>().HasData(
                 new Animal { Id = 1, Name = "Whiskers", Age = 2, PictureName = "whiskers.jpg", Description = "A fluffy grey cat", CategoryId = 1 },
-                new Animal { Id = 2, Name = "Fido", Age = 3, PictureName = "fido.jpg", Description = "A playful brown dog", CategoryId = 2 },
+                new Animal { Id = 2, Name = "Fido", Age = 3, PictureName = "fido.jpeg", Description = "A playful brown dog", CategoryId = 2 },
                 new Animal { Id = 3, Name = "Paws", Age = 1, PictureName = "paws.jpg", Description = "A playful kitten", CategoryId = 1 },
-                new Animal { Id = 4, Name = "Chirpy", Age = 1, PictureName = "chirpy.jpg", Description = "A cheerful little parrot", CategoryId = 3 },
+                new Animal { Id = 4, Name = "Chirpy", Age = 1, PictureName = "chirpy.jpg", Description = "A cheerful little birdy", CategoryId = 3 },
                 new Animal { Id = 5, Name = "Tweety", Age = 2, PictureName = "tweety.jpg", Description = "A canary with a sweet song", CategoryId = 3 },
-                new Animal { Id = 6, Name = "Scales", Age = 4, PictureName = "scales.jpg", Description = "A calm and collected iguana", CategoryId = 4 },
+                new Animal { Id = 6, Name = "Scales", Age = 4, PictureName = "scales.png", Description = "A calm and collected iguana", CategoryId = 4 },
                 new Animal { Id = 7, Name = "Slither", Age = 2, PictureName = "slither.jpg", Description = "A curious corn snake", CategoryId = 4 }
             );
 
