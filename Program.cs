@@ -20,6 +20,6 @@ using (var scope = app.Services.CreateScope())
 app.UseRouting();
 app.UseStaticFiles();
 
-app.MapControllerRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute("Default", "{controller=Home}/{action=Index}");
 
 app.Run();

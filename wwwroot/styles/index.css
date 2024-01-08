@@ -1,0 +1,32 @@
+﻿header {
+    text-align:center;
+    height:10vh;
+}
+
+a{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    font:inherit;
+    vertical-align:baseline;
+    text-decoration:none;
+}
+
+.content{
+    justify-self:center;
+    width:100%;
+    padding:32px;
+}
+
+.mainLayout{
+    display:flex;
+    flex-direction:row;
+}
+
+.navbar{
+    width:200px;
+    height:90vh;
+    justify-content:start;
+    gap:10px;
+}
