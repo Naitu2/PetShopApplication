@@ -1,0 +1,16 @@
+﻿.card {
+    width: 500px;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 40px;
+}
+
+img {
+    width: 100%;
+    min-height: 240px;
+    max-height: 240px;
+    object-fit:cover;
+}

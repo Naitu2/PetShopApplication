@@ -9,16 +9,14 @@
     <link href="~/styles/index.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        <header><h1>Wild Pet Shop</h1></header>
-        <div class="mainLayout">
-            <div class="flex flex-column text-white bg-dark navbar">
-                <a asp-action="Index">Home</a>
-                <a asp-action="Catalog">Catalog</a>
-                <a asp-action="Admin">Admin page</a>
-                </div>
-            <div class="content">@RenderBody()</div>
+    <header><h1>Wild Pet Shop</h1></header>
+    <div class="mainLayout">
+        <div class="flex flex-column text-white bg-dark navbar">
+            <a asp-action="Index">Home</a>
+            <a asp-action="Catalog">Catalog</a>
+            <a asp-action="Admin">Admin page</a>
         </div>
+        <div class="content">@RenderBody()</div>
     </div>
 </body>
 </html>
