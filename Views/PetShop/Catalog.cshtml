@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PetShopApplication.Models.Animal>
+@{
+    ViewData["Title"] = "Catalog";
+}
+
+<div class="container">
+<div class="row">
+    <div class="col">
+        <h3>Name</h3>
+    </div>
+    <div class="col">
+        <h3>Age</h3>
+    </div>
+    <div class="col">
+        <h3>PictureName</h3>
+    </div>
+    <div class="col">
+        <h3>Description</h3>
+    </div>
+</div>
+
+@foreach (var person in Model)
+{
+    <div class="row">
+        <div class="col">
+            @person.Name
+        </div>
+        <div class="col">
+                @person.Age
+        </div>
+        <div class="col">
+                @person.PictureName
+        </div>
+        <div class="col">
+                @person.Description
+        </div>
+    </div>
+}
+</div>
+
