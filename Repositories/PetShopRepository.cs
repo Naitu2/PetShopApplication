@@ -20,9 +20,21 @@ namespace PetShopApplication.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<Animal> GetAnimals()
+        public IEnumerable<Animal> GetAnimals(string categoryName = "All Categories")
         {
-            return _context.Animals!;
+            IQueryable<Animal> query = _context.Animals!;
+
+            if (!string.IsNullOrWhiteSpace(categoryName) && categoryName != "All Categories")
+            {
+                query = query.Join(_context.Categories!,
+                                   animal => animal.CategoryId,
+                                   category => category.Id,
+                                   (animal, category) => new { Animal = animal, Category = category })
+                             .Where(ac => ac.Category.Name == categoryName)
+                             .Select(ac => ac.Animal);
+            }
+
+            return query.ToList();
         }
 
         public IEnumerable<Animal> GetTwoTopAnimals()
