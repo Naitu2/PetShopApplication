@@ -20,7 +20,7 @@ namespace PetShopApplication.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<Animal> GetAnimals(string categoryName = "All Categories")
+        public IEnumerable<Animal> GetAnimals(string categoryName)
         {
             IQueryable<Animal> query = _context.Animals!;
 
