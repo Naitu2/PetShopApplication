@@ -17,6 +17,7 @@ namespace PetShopApplication.Controllers
         }
         public IActionResult Catalog()
         {
+            ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
             return View(_repository.GetAnimals());
         }
         public IActionResult Admin()

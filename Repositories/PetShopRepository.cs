@@ -76,5 +76,10 @@ namespace PetShopApplication.Repositories
                 _context.SaveChanges();
             }
         }
+
+        public IEnumerable<Category> GetCategories()
+        {
+            return _context.Categories!.ToList();
+        }
     }
 }
