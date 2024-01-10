@@ -9,6 +9,7 @@ namespace PetShopApplication.Repositories
         void InsertAnimal(Animal animal);
         void UpdateAnimal(Animal animal);
         void DeleteAnimal(int id);
+        Animal? GetAnimalWithComments(int id);
         IEnumerable<Category> GetCategories();
     }
 }

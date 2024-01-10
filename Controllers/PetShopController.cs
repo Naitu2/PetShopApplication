@@ -11,7 +11,7 @@ namespace PetShopApplication.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index()
+        public IActionResult Home()
         {
             return View();
         }
