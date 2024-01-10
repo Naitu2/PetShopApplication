@@ -3,14 +3,16 @@
     ViewData["Title"] = "Catalog";
     var categories = ViewBag.Categories as List<string>;
 }
+@section section1 {
+    <select name="category" id="category" class="categorySelect">
+        <option value="All Categories">All Categories</option>
+        @foreach (var category in categories)
+        {
+            <option value="@category">@category</option>
+        }
+    </select>
+}
 
-<select name="category" id="category">
-    <option value="All Categories">All Categories</option>
-    @foreach (var category in categories)
-    {
-        <option value="@category">@category</option>
-    }
-</select>
 
 <div class="list">
     @foreach (var animal in Model)

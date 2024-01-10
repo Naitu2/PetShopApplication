@@ -10,14 +10,17 @@
 </head>
 <body>
     <div class="mainLayout">
-        <div class="flex flex-column text-white bg-dark navbar">
+        <div class="leftPanel">
+            <img class="logo" src="~/images/logo.png" />
+        <div class="flex flex-column navbar">
             <a asp-action="Home" asp-controller="PetShop">Home</a>
             <a asp-action="Catalog" asp-controller="PetShop">Catalog</a>
             <a asp-action="Admin" asp-controller="PetShop">Admin page</a>
         </div>
-
+        @RenderSection("section1", false)
+        </div>
         <div class="content">
-            <header><img class="logo" src="~/images/logo.png" /></header>
+            <header>Wild Pet Shop</header>
             @RenderBody()
         </div>
     </div>
