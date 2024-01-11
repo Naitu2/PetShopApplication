@@ -5,7 +5,7 @@ namespace PetShopApplication.Controllers
 {
     public class AnimalController : Controller
     {
-        private IPetShopRepository _repository;
+        private readonly IPetShopRepository _repository;
         public AnimalController(IPetShopRepository repository)
         {
             _repository = repository;
