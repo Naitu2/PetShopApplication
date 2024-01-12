@@ -13,7 +13,7 @@ namespace PetShopApplication.Controllers
 
         public IActionResult Home()
         {
-            return View();
+            return View(_repository.GetTwoTopAnimals());
         }
         public IActionResult Catalog()
         {
