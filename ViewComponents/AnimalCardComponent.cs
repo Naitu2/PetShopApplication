@@ -5,9 +5,9 @@ namespace PetShopApplication.ViewComponents
 {
     public class AnimalCardViewComponent : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync(Animal param)
+        public Task<IViewComponentResult> InvokeAsync(Animal param)
         {
-            return View("AnimalCard", param);
+            return Task.FromResult<IViewComponentResult>(View("AnimalCard", param));
         }
     }
 }
