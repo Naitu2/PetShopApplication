@@ -17,8 +17,8 @@
             <div class="carousel-item @(animal.Index == 0 ? "active" : "")">
                 <img src="~/images/@animal.Value.PictureName" class="d-block carouselImage" alt="This is a picture of @animal.Value.Name">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>@animal.Value.Name</h5>
-                    <p>@animal.Value.Description</p>
+                    <h1>@animal.Value.Name</h1>
+                    <p class="carouselDescription">@animal.Value.Description</p>
                 </div>
             </div>
         }
