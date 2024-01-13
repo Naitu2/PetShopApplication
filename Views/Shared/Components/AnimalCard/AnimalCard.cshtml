@@ -1,7 +1,7 @@
 ﻿@model PetShopApplication.Models.Animal
 
 <link href="~/styles/cardStyle.css" rel="stylesheet" />
-<a asp-action="Details" asp-controller="Animal" asp-route-animalId="@Model.Id">
+<a asp-action="Details" asp-controller="Catalog" asp-route-animalId="@Model.Id">
     <div class="card">
         <img src="~/images/@Model.PictureName" alt="Picture of @Model.Name" />
         <div class="text-center">@Model.Name</div>

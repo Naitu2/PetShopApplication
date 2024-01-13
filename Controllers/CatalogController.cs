@@ -3,12 +3,18 @@ using PetShopApplication.Repositories;
 
 namespace PetShopApplication.Controllers
 {
-    public class AnimalController : Controller
+    public class CatalogController : Controller
     {
         private readonly IPetShopRepository _repository;
-        public AnimalController(IPetShopRepository repository)
+        public CatalogController(IPetShopRepository repository)
         {
             _repository = repository;
+        }
+
+        public IActionResult Index()
+        {
+            ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
+            return View(_repository.GetAnimals());
         }
 
         public IActionResult Details(int animalId)

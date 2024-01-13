@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<PetShopApplication.Models.Animal>
+
 @{
-    ViewData["Title"] = "Catalog";
+    ViewData["Title"] = "Index";
     var categories = ViewBag.Categories as List<string>;
 }
+
 @section section1 {
     <select name="category" id="category" class="categorySelect">
         <option value="All Categories">All Categories</option>
@@ -13,11 +15,9 @@
     </select>
 }
 
-
 <div class="list">
     @foreach (var animal in Model)
-{
+    {
         @await Component.InvokeAsync("AnimalCard", animal)
-}
+    }
 </div>
-

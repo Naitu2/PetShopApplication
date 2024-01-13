@@ -20,6 +20,6 @@ using (var scope = app.Services.CreateScope())
 app.UseRouting();
 app.UseStaticFiles();
 
-app.MapControllerRoute("Default", "{controller=PetShop}/{action=Home}");
+app.MapDefaultControllerRoute();
 
 app.Run();
