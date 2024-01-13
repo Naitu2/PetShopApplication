@@ -7,7 +7,7 @@ namespace PetShopApplication.ViewComponents
     {
         public Task<IViewComponentResult> InvokeAsync(Animal param)
         {
-            return Task.FromResult<IViewComponentResult>(View("AnimalCard", param));
+            return Task.FromResult<IViewComponentResult>(View("_AnimalCard", param));
         }
     }
 }
