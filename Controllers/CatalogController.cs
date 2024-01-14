@@ -21,5 +21,15 @@ namespace PetShopApplication.Controllers
         {
             return View(_repository.GetAnimalWithComments(animalId));
         }
+
+        [HttpPost]
+        public IActionResult CatalogShowCategory(string selectedCategory)
+        {
+            ViewBag.SelectedCategory = selectedCategory;
+            ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
+            var animals = _repository.GetAnimals(selectedCategory);
+
+            return View(animals);
+        }
     }
 }

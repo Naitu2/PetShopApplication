@@ -5,19 +5,37 @@
     var categories = ViewBag.Categories as List<string>;
 }
 
-@section section1 {
-    <select name="category" id="category" class="categorySelect">
-        <option value="All Categories">All Categories</option>
-        @foreach (var category in categories)
-        {
-            <option value="@category">@category</option>
-        }
-    </select>
-}
-
-<div class="list">
-    @foreach (var animal in Model)
-    {
-        @await Component.InvokeAsync("AnimalCard", animal)
+<div id="catalogContainer">
+    @section section1 {
+        <select name="category" id="category" class="categorySelect">
+            <option value="All Categories">All Categories</option>
+            @foreach (var category in categories)
+            {
+                <option value="@category">@category</option>
+            }
+        </select>
     }
+
+    <div class="list">
+        @foreach (var animal in Model)
+        {
+            @await Component.InvokeAsync("AnimalCard", animal)
+        }
+    </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#category").change(function () {
+            var selectedCategory = $(this).children("option:selected").val();
+            $.ajax({
+                url: '/Catalog/CatalogShowCategory',
+                type: 'POST',
+                data: { selectedCategory: selectedCategory },
+                success: function (result) {
+                    $('#catalogContainer').html(result);
+                }
+            });
+        });
+    });
+</script>

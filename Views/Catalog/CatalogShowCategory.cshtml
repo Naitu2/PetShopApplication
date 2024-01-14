@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PetShopApplication.Models.Animal>
+
+@{
+    Layout = null;
+    var categories = ViewBag.Categories as List<string>;
+    var selectedCategory = ViewBag.SelectedCategory;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CatalogShowCategory</title>
+</head>
+<body>
+
+    @section section1 {
+        <select name="category" id="category" class="categorySelect">
+            <option value="All Categories">All Categories</option>
+            @foreach (var category in categories)
+            {
+                <option selected="@(selectedCategory == category)" value="@category">@category</option>
+            }
+        </select>
+    }
+
+    <div class="list">
+        @foreach (var animal in Model)
+        {
+            @await Component.InvokeAsync("AnimalCard", animal)
+        }
+    </div>
+
+</body>
+</html>
