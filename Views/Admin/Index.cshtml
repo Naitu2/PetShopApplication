@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PetShopApplication.Models.Animal>
+﻿@model PetShopApplication.ViewComponents.AnimalListViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -22,7 +22,7 @@
         $("#category").change(function () {
             var selectedCategory = $(this).children("option:selected").val();
             $.ajax({
-                url: '/Catalog/ShowCategory',
+                url: '/Admin/ShowCategory',
                 type: 'POST',
                 data: { selectedCategory: selectedCategory },
                 success: function (result) {

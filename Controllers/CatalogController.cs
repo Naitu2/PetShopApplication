@@ -1,20 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PetShopApplication.Repositories;
+using PetShopApplication.Services;
+using PetShopApplication.ViewComponents;
 
 namespace PetShopApplication.Controllers
 {
     public class CatalogController : Controller
     {
         private readonly IPetShopRepository _repository;
-        public CatalogController(IPetShopRepository repository)
+        private AnimalListViewModel _listViewModel;
+        public CatalogController(IPetShopRepository repository, IListViewModelService listViewModelService)
         {
             _repository = repository;
+            _listViewModel = listViewModelService.GetListViewModelData("Catalog");
         }
 
         public IActionResult Index()
         {
+            var animals = _repository.GetAnimals();
             ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
-            return View(_repository.GetAnimals());
+
+            _listViewModel.Animals = animals;
+
+            return View(_listViewModel);
         }
 
         [HttpPost]
@@ -22,7 +30,9 @@ namespace PetShopApplication.Controllers
         {
             var animals = _repository.GetAnimals(selectedCategory);
 
-            return ViewComponent("AnimalList", animals);
+            _listViewModel.Animals = animals;
+
+            return ViewComponent("AnimalList", _listViewModel);
         }
         public IActionResult Details(int animalId)
         {

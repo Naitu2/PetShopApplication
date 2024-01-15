@@ -1,8 +1,17 @@
-﻿@model IEnumerable<PetShopApplication.Models.Animal>
+﻿@using PetShopApplication.ViewComponents
+@model PetShopApplication.ViewComponents.AnimalListViewModel
 
 <div class="list">
-    @foreach (var animal in Model)
+    @foreach (var animal in Model.Animals)
     {
-        @await Component.InvokeAsync("AnimalCard", animal)
+        var cardViewModel = new AnimalCardViewModel
+                {
+                    Animal = animal,
+                    ShowDeleteButton = Model.ShowDeleteButton,
+                    Action = Model.Action,
+                    Controller = Model.Controller,
+                };
+
+        @await Component.InvokeAsync("AnimalCard", cardViewModel)
     }
 </div>

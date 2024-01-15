@@ -8,7 +8,5 @@ namespace PetShopApplication.Models
 
         [Display(Name = "Category Name:")]
         public string? Name { get; set; }
-
-        public virtual ICollection<Animal>? Animals { get; set; }
     }
 }

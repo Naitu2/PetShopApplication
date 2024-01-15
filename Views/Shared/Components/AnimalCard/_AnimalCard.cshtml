@@ -1,9 +1,9 @@
-﻿@model PetShopApplication.Models.Animal
+﻿@model PetShopApplication.ViewComponents.AnimalCardViewModel
 
 <link href="~/styles/cardStyle.css" rel="stylesheet" />
-<a asp-action="Details" asp-controller="Catalog" asp-route-animalId="@Model.Id">
+<a asp-action="@Model.Action" asp-controller="@Model.Controller" asp-route-animalId="@Model.Animal.Id">
     <div class="card">
-        <img src="~/images/@Model.PictureName" alt="Picture of @Model.Name" />
-        <div class="text-center">@Model.Name</div>
+        <img src="~/images/@Model.Animal.PictureName" alt="Picture of @Model.Animal.Name" />
+        <div class="text-center">@Model.Animal.Name</div>
     </div>
 </a>
