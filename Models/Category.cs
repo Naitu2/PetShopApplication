@@ -6,7 +6,7 @@ namespace PetShopApplication.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Category Name:")]
+        [Display(Name = "Category:")]
         public string? Name { get; set; }
     }
 }
