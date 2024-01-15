@@ -29,7 +29,7 @@
         $("#category").change(function () {
             var selectedCategory = $(this).children("option:selected").val();
             $.ajax({
-                url: '/Catalog/CatalogShowCategory',
+                url: '/Catalog/ShowCategory',
                 type: 'POST',
                 data: { selectedCategory: selectedCategory },
                 success: function (result) {

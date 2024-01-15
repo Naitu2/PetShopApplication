@@ -23,7 +23,7 @@ namespace PetShopApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult CatalogShowCategory(string selectedCategory)
+        public IActionResult ShowCategory(string selectedCategory)
         {
             ViewBag.SelectedCategory = selectedCategory;
             ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
