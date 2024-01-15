@@ -17,8 +17,8 @@
             }
         </select>
     }
-
-    @await Component.InvokeAsync("AnimalList", Model)
+    <div id="zhopa">@await Component.InvokeAsync("AnimalList", Model)</div>
+    
 
 </div>
 
@@ -31,7 +31,7 @@
                 type: 'POST',
                 data: { selectedCategory: selectedCategory },
                 success: function (result) {
-                    $('#catalogContainer').html(result);
+                    $('#zhopa').html(result);
                 }
             });
         });

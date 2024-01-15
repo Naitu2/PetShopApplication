@@ -14,19 +14,6 @@
     <title>CatalogShowCategory</title>
 </head>
 <body>
-
-    @section section1 {
-        <select name="category" id="category" class="categorySelect">
-            <option value="All Categories">All Categories</option>
-            @foreach (var category in categories)
-            {
-                <option selected="@(selectedCategory == category)" value="@category">@category</option>
-            }
-        </select>
-    }
-
     @await Component.InvokeAsync("AnimalList", Model)
-
-
 </body>
 </html>
