@@ -16,12 +16,8 @@
         </select>
     }
 
-    <div class="list">
-        @foreach (var animal in Model)
-        {
-            @await Component.InvokeAsync("AnimalCard", animal)
-        }
-    </div>
+     @await Component.InvokeAsync("AnimalList", Model)
+
 </div>
 
 <script>

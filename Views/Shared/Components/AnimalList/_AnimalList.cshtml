@@ -1,0 +1,8 @@
+﻿@model IEnumerable<PetShopApplication.Models.Animal>
+
+<div class="list">
+    @foreach (var animal in Model)
+    {
+        @await Component.InvokeAsync("AnimalCard", animal)
+    }
+</div>
