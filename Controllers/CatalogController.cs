@@ -17,11 +17,6 @@ namespace PetShopApplication.Controllers
             return View(_repository.GetAnimals());
         }
 
-        public IActionResult Details(int animalId)
-        {
-            return View(_repository.GetAllAnimalInfo(animalId));
-        }
-
         [HttpPost]
         public IActionResult ShowCategory(string selectedCategory)
         {
@@ -30,6 +25,10 @@ namespace PetShopApplication.Controllers
             var animals = _repository.GetAnimals(selectedCategory);
 
             return View(animals);
+        }
+        public IActionResult Details(int animalId)
+        {
+            return View(_repository.GetAllAnimalInfo(animalId));
         }
     }
 }

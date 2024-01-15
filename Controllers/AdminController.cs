@@ -13,7 +13,8 @@ namespace PetShopApplication.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
+            return View(_repository.GetAnimals());
         }
     }
 }
