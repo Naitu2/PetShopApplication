@@ -20,11 +20,9 @@ namespace PetShopApplication.Controllers
         [HttpPost]
         public IActionResult ShowCategory(string selectedCategory)
         {
-            ViewBag.SelectedCategory = selectedCategory;
-            ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
             var animals = _repository.GetAnimals(selectedCategory);
 
-            return View(animals);
+            return ViewComponent("AnimalList", animals);
         }
         public IActionResult Details(int animalId)
         {

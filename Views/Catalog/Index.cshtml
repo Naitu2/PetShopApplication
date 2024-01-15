@@ -5,20 +5,17 @@
     var categories = ViewBag.Categories as List<string>;
 }
 
-<div id="catalogContainer">
-    @section section1 {
-        <select name="category" id="category" class="categorySelect">
-            <option value="All Categories">All Categories</option>
-            @foreach (var category in categories)
-            {
-                <option value="@category">@category</option>
-            }
-        </select>
-    }
+@section section1 {
+    <select name="category" id="category" class="categorySelect">
+        <option value="All Categories">All Categories</option>
+        @foreach (var category in categories)
+        {
+            <option value="@category">@category</option>
+        }
+    </select>
+}
 
-     @await Component.InvokeAsync("AnimalList", Model)
-
-</div>
+<div id="animalList">@await Component.InvokeAsync("AnimalList", Model)</div>
 
 <script>
     $(document).ready(function () {
@@ -29,7 +26,7 @@
                 type: 'POST',
                 data: { selectedCategory: selectedCategory },
                 success: function (result) {
-                    $('#catalogContainer').html(result);
+                    $('#animalList').html(result);
                 }
             });
         });
