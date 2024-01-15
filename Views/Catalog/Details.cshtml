@@ -6,4 +6,35 @@
 
 <h1>@Model.Name</h1>
 
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.DisplayNameFor(model => model.Age)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Age)
+        </div>
+    </div><div class="row">
+        <div class="col">
+            @Html.DisplayNameFor(model => model.Category!.Name)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Category!.Name)
+        </div>
+    </div><div class="row">
+        <div class="col">
+            @Html.DisplayNameFor(model => model.Description)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+    </div>
+</div>

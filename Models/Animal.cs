@@ -27,6 +27,7 @@ namespace PetShopApplication.Models
         [ForeignKey("Category")]
         [Required(ErrorMessage = "Please select a category.")]
         public int CategoryId { get; set; }
+        public virtual Category? Category { get; set; }
 
         public virtual ICollection<Comment>? Comments { get; set; }
     }

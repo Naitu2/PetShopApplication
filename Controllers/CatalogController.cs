@@ -19,7 +19,7 @@ namespace PetShopApplication.Controllers
 
         public IActionResult Details(int animalId)
         {
-            return View(_repository.GetAnimalWithComments(animalId));
+            return View(_repository.GetAllAnimalInfo(animalId));
         }
 
         [HttpPost]

@@ -77,10 +77,11 @@ namespace PetShopApplication.Repositories
             }
         }
 
-        public Animal? GetAnimalWithComments(int id)
+        public Animal? GetAllAnimalInfo(int id)
         {
             return _context!.Animals!
                            .Include(a => a.Comments)
+                           .Include(a => a.Category)
                            .FirstOrDefault(a => a.Id == id);
         }
 
