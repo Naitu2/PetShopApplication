@@ -16,6 +16,8 @@
 
 .carouselDescription {
     font-size: 18px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .carouselImage:hover {
