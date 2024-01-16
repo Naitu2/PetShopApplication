@@ -24,6 +24,12 @@
     width:calc(100% - 100px);
 }
 
+.commentList {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
 .commentInput:focus-visible{
     outline:none;
 }

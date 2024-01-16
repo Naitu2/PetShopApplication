@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PetShopApplication.Models;
 using PetShopApplication.Repositories;
 using PetShopApplication.Services;
 using PetShopApplication.ViewComponents;
@@ -37,6 +38,22 @@ namespace PetShopApplication.Controllers
         public IActionResult Details(int animalId)
         {
             return View(_repository.GetAllAnimalInfo(animalId));
+        }
+        [HttpPost]
+        public IActionResult AddComment(int animalId, string commentContent)
+        {
+
+            var comment = new Comment
+            {
+                AnimalId = animalId,
+                Content = commentContent
+            };
+
+            _repository.AddComment(comment);
+
+            var animal = _repository.GetAllAnimalInfo(animalId);
+
+            return ViewComponent("CommentSection", animal);
         }
     }
 }

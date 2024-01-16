@@ -1,4 +1,5 @@
 ﻿<link href="~/styles/animalDetailsCard.css" rel="stylesheet" />
+<link href="~/styles/commentSection.css" rel="stylesheet" />
 
 @model PetShopApplication.Models.Animal;
 
@@ -20,4 +21,34 @@
     </div>
 </div>
 
-@await Component.InvokeAsync("CommentSection", Model)
+<div class="commentSection">
+    <div class="commentInputBox">
+        <textarea type="text" placeholder="Enter your comment here..." class="commentInput" maxlength="300"></textarea>
+        <button class="submitCommentButton">Submit</button>
+    </div>
+    <div id="CommentSection" class="commentList">
+        @await Component.InvokeAsync("CommentSection", Model)
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $(".submitCommentButton").click(function () {
+            var commentContent = $(".commentInput").val();
+            $.ajax({
+                url: '/Catalog/AddComment',
+                type: 'POST',
+                data: { animalId: @Model.Id, commentContent: commentContent },
+                success: function (result) {
+                    $('#CommentSection').html(result);
+                    $(".commentInput").val('');
+
+                    var textarea = document.querySelector('.commentInput');
+                    textarea.style.height = 'auto';
+                }
+            });
+        });
+    });
+
+</script>

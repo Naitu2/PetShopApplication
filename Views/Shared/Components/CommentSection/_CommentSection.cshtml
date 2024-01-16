@@ -1,17 +1,9 @@
 ﻿@model PetShopApplication.Models.Animal
 
-<link href="~/styles/commentSection.css" rel="stylesheet" />
-
-<div class="commentSection">
-    <div class="commentInputBox">
-        <textarea type="text" class="commentInput" maxlength="300"></textarea>
-        <button class="submitCommentButton">Submit</button>
-    </div>
     @foreach (var comment in Model.Comments)
     {
         <div class="comment">@comment.Content</div>
     }
-</div>
 
 <script>
     const textarea = document.querySelector('textarea');
