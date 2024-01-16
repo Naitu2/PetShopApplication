@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PetShopApplication.Models;
 using PetShopApplication.Repositories;
 using PetShopApplication.Services;
 using PetShopApplication.ViewComponents;
@@ -36,9 +35,9 @@ namespace PetShopApplication.Controllers
             return ViewComponent("AnimalList", _listViewModel);
         }
 
-        public IActionResult Update(Animal updatedAnimal)
+        public IActionResult Update(int animalId)
         {
-            return Content("zhopa");
+            return View(_repository.GetAllAnimalInfo(animalId));
         }
     }
 }
