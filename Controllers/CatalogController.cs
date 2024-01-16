@@ -24,7 +24,6 @@ namespace PetShopApplication.Controllers
 
             return View(_listViewModel);
         }
-
         [HttpPost]
         public IActionResult ShowCategory(string selectedCategory)
         {
@@ -34,6 +33,7 @@ namespace PetShopApplication.Controllers
 
             return ViewComponent("AnimalList", _listViewModel);
         }
+
         public IActionResult Details(int animalId)
         {
             return View(_repository.GetAllAnimalInfo(animalId));

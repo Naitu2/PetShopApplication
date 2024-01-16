@@ -1,0 +1,25 @@
+﻿.carouselImage {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+}
+
+.carousel {
+    width: 70%;
+    margin: auto;
+    margin-top: 70px;
+    background: #65815F;
+    border-radius: 50px;
+    border: solid #101F22;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.carouselDescription {
+    font-size: 18px;
+}
+
+.carouselImage:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+}

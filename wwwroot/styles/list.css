@@ -1,0 +1,11 @@
+﻿.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.categorySelect {
+    margin: 15px;
+    justify-self: center;
+}
