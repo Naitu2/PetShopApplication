@@ -1,0 +1,51 @@
+﻿.commentSection {
+    margin-block: 30px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.commentInputBox {
+    border-radius: 32px;
+    border: 3px solid #101F22;
+    background: #9AB195;
+    padding: 20px;
+    position: relative;
+    display:flex;
+}
+
+.commentInput {
+    border:none;
+    background:none;
+    overflow: hidden;
+    resize: none;
+    margin-right:auto;
+    width:calc(100% - 100px);
+}
+
+.commentInput:focus-visible{
+    outline:none;
+}
+
+.submitCommentButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 34px;
+    border: 3px solid #101F22;
+    padding: 10px 15px;
+    background: none;
+}
+
+    .submitCommentButton:hover {
+        border: 3px solid aliceblue;
+        color: aliceblue;
+    }
+
+.comment {
+    border-radius: 32px;
+    border: 2px solid #101F22;
+    background: #65815F;
+    padding: 20px;
+}
