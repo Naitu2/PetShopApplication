@@ -4,6 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
+<h2 id="welcomeText">Welcome to our pet shop!</h2>
+<h3 id="topAnimalsText">Check out the most popular animals:</h3>
+
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         @for (int i = 0; i < Model.Count(); i++)
@@ -17,11 +20,11 @@
             <div class="carousel-item @(animal.Index == 0 ? "active" : "")">
                 <a asp-action="Details" asp-controller="Catalog" asp-route-animalId="@animal.Value.Id">
                     <img src="~/images/@animal.Value.PictureName" class="d-block carouselImage" alt="This is a picture of @animal.Value.Name">
+                </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1>@animal.Value.Name</h1>
                     <p class="carouselDescription">@animal.Value.Description</p>
                 </div>
-                </a>
             </div>
         }
     </div>
