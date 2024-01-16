@@ -38,7 +38,9 @@ namespace PetShopApplication.Data
         Name = "Fido",
         Age = 3,
         PictureName = "fido.jpeg",
-        Description = "A playful brown dog with a loyal and friendly demeanor. Enjoys long walks and is great with kids.",
+        Description = "Meet Fido, a 3-year-old charming brown dog, capturing hearts with his playful antics and loyal companionship." +
+        " His expressive eyes and friendly demeanor make every encounter delightful. A fan of long, leisurely walks," +
+        " Fido thrives in the company of children, showcasing his gentle nature.",
         CategoryId = 2
     },
     new Animal

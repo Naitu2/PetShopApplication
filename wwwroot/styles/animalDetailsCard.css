@@ -1,0 +1,36 @@
+﻿.card {
+    min-height: 100%;
+    display: flex;
+    padding: 36px;
+    border-radius: 40px;
+    border: 3px solid #101F22;
+    background: #65815F;
+    margin: 40px;
+    gap: 20px;
+    align-items: center;
+    width:72%;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+.animalImage {
+    max-height: 420px;
+    object-fit: contain;
+    border: 3px solid #101F22;
+    border-radius: 100px;
+}
+
+.ageCategory {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.description {
+    color: rgb(46, 46, 46);
+    max-width: 60%;
+}

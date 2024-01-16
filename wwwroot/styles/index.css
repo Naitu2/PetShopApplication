@@ -15,7 +15,8 @@
 
 body {
     background: #B7C7B4;
-    font: 20px roboto;
+    font: 20px;
+    font-family: 'Roboto' sans-serif;
 }
 
 header {
@@ -58,9 +59,10 @@ a {
 }
 
 .content {
-    justify-self: center;
+    display: grid;
     width: 100%;
     grid-area: content;
+    justify-items:center;
 }
 
 .mainLayout {

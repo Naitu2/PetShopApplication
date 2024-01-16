@@ -1,40 +1,21 @@
-﻿@model PetShopApplication.Models.Animal;
+﻿<link href="~/styles/animalDetailsCard.css" rel="stylesheet" />
+
+@model PetShopApplication.Models.Animal;
 
 @{
     ViewData["Title"] = "Details";
 }
 
 <div class="card">
-<div class="container">
-    <div class="row">
-        <div class="col">
-            @Html.DisplayNameFor(model => model.Name)
-        </div>
-        <div class="col">
-            @Html.DisplayFor(model => model.Name)
-        </div>
+    <h1>@Html.DisplayFor(model => model.Name)</h1>
+    <div><img class="animalImage" src="~/images/@Model.PictureName" alt="This is a picture of @Model.Name"></div>
+    <hr width="50%">
+    <div class="ageCategory">
+        <div>@Html.DisplayFor(model => model.Age) year@(Model.Age == 1 ? "" : "s") old</div>
+        <div>@Html.DisplayNameFor(model => model.Category!.Name) @Html.DisplayFor(model => model.Category!.Name)</div>
     </div>
-    <div class="row">
-        <div class="col">
-            @Html.DisplayNameFor(model => model.Age)
-        </div>
-        <div class="col">
-            @Html.DisplayFor(model => model.Age)
-        </div>
-    </div><div class="row">
-        <div class="col">
-            @Html.DisplayNameFor(model => model.Category!.Name)
-        </div>
-        <div class="col">
-            @Html.DisplayFor(model => model.Category!.Name)
-        </div>
-    </div><div class="row">
-        <div class="col">
-            @Html.DisplayNameFor(model => model.Description)
-        </div>
-        <div class="col">
-            @Html.DisplayFor(model => model.Description)
-        </div>
+    <hr width="50%">
+    <div class="description">
+        @Html.DisplayFor(model => model.Description)
     </div>
-</div>
 </div>
