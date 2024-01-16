@@ -1,2 +1,9 @@
-﻿<link href="~/styles/commentSection.css" rel="stylesheet" />
+﻿@model PetShopApplication.Models.Animal
 
+<link href="~/styles/commentSection.css" rel="stylesheet" />
+
+<input type="text" class="commentInput"/>
+@foreach(var comment in Model.Comments)
+{
+    <div class="comment">@comment.Content</div>
+}

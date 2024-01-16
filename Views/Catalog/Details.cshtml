@@ -19,3 +19,5 @@
         @Html.DisplayFor(model => model.Description)
     </div>
 </div>
+
+@await Component.InvokeAsync("CommentSection", Model)

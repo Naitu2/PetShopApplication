@@ -11,5 +11,6 @@ namespace PetShopApplication.Repositories
         void DeleteAnimal(int id);
         Animal? GetAllAnimalInfo(int id);
         IEnumerable<Category> GetCategories();
+        void AddComment(Comment comment);
     }
 }
