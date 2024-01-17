@@ -7,7 +7,7 @@
 }
 
 @section section1 {
-    <select name="category" id="category" class="categorySelect">
+    <select class="categorySelect">
         <option value="All Categories">All Categories</option>
         @foreach (var category in categories)
         {
@@ -20,7 +20,7 @@
 
 <script>
     $(document).ready(function () {
-        $("#category").change(function () {
+        $(".categorySelect").change(function () {
             var selectedCategory = $(this).children("option:selected").val();
             $.ajax({
                 url: '/Catalog/ShowCategory',
