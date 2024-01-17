@@ -28,11 +28,6 @@
     transform: scale(1.01);
 }
 
-#welcomeText {
-    font: bold 40px;
-    margin-top: 20px;
-}
-
 #topAnimalsText {
     font: 30px roboto;
     margin-top:50px;
