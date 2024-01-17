@@ -18,7 +18,7 @@
         {
             <div class="carousel-item @(animal.Index == 0 ? "active" : "")">
                 <a asp-action="Details" asp-controller="Catalog" asp-route-animalId="@animal.Value.Id">
-                    <img src="~/images/@animal.Value.PictureName" class="d-block carouselImage" alt="This is a picture of @animal.Value.Name">
+                    <img src="~/images/Animals/@animal.Value.PictureName" class="d-block carouselImage" alt="This is a picture of @animal.Value.Name">
                 </a>
                 <div class="carousel-caption d-none d-md-block">
                     <h1>@animal.Value.Name</h1>

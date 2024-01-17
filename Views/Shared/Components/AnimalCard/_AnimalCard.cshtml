@@ -3,7 +3,7 @@
 <link href="~/styles/cardStyle.css" rel="stylesheet" />
 <a asp-action="@Model.Action" asp-controller="@Model.Controller" asp-route-animalId="@Model.Animal.Id">
     <div class="card">
-        <img class="cardImage" src="~/images/@Model.Animal.PictureName" alt="Picture of @Model.Animal.Name" />
+        <img class="cardImage" src="~/images/Animals/@Model.Animal.PictureName" alt="Picture of @Model.Animal.Name" />
         <div class="text-center">@Model.Animal.Name</div>
     </div>
 </a>
