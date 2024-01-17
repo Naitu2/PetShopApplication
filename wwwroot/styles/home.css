@@ -10,7 +10,7 @@
     background: #65815F;
     border-radius: 50px;
     border: solid #101F22;
-    color: white;
+    color: aliceblue;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
@@ -18,9 +18,9 @@
     font-size: 18px;
     word-wrap: break-word;
     white-space: pre-wrap;
-    background-color: rgba(128, 128, 128, 0.2);
+    background-color: rgba(128, 128, 128, 0.4);
     border-radius: 25px;
-    border: solid #101F22;
+    border: solid 1px #101F22;
 }
 
 .carouselImage:hover {
