@@ -51,7 +51,7 @@ namespace PetShopApplication.Controllers
 
             _repository.AddComment(comment);
 
-            var animal = _repository.GetAllAnimalInfo(animalId);
+            var animal = _repository.GetAnimalWithComments(animalId);
 
             return ViewComponent("CommentSection", animal);
         }

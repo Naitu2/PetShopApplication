@@ -85,6 +85,13 @@ namespace PetShopApplication.Repositories
                            .FirstOrDefault(a => a.Id == id);
         }
 
+        public Animal? GetAnimalWithComments(int id)
+        {
+            return _context!.Animals!
+                           .Include(a => a.Comments)
+                           .FirstOrDefault(a => a.Id == id);
+        }
+
         public IEnumerable<Category> GetCategories()
         {
             return _context.Categories!.ToList();
