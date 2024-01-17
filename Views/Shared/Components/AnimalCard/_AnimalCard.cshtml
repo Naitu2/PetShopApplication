@@ -4,6 +4,30 @@
 <a asp-action="@Model.Action" asp-controller="@Model.Controller" asp-route-animalId="@Model.Animal.Id">
     <div class="card">
         <img class="cardImage" src="~/images/Animals/@Model.Animal.PictureName" alt="Picture of @Model.Animal.Name" />
+
+        @if (Model.ShowDeleteButton)
+        {
+            <img class="redXsvg" src="~/images/Utility/Red_X.svg" alt="Red X svg" data-animal-id="@Model.Animal.Id" />
+        }
+
         <div class="text-center">@Model.Animal.Name</div>
     </div>
 </a>
+
+
+@* <script>
+    $(document).ready(function () {
+        $(".redXsvg").click(function () {
+            event.preventDefault();
+            event.stopPropagation();
+            $.ajax({
+                url: '/Admin/DeleteAnimal',
+                type: 'POST',
+                data: { animalId: @Model.Animal.Id },
+                success: function (result) {
+                    $('#animalList').html(result);
+                }
+            });
+        });
+    });
+</script> *@

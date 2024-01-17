@@ -12,6 +12,7 @@
     font: bold 36px roboto;
     color:#101F22;
     background: #65815F;
+    position:relative;
 }
 
 .card:hover{
@@ -25,3 +26,17 @@
     max-height: 240px;
     object-fit:cover;
 }
+
+.redXsvg {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+    .redXsvg:hover {
+        opacity: 0.8;
+        transform: scale(1.2);
+        filter: drop-shadow(2px 2px 4px #000);
+    }

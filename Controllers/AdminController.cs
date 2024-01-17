@@ -9,6 +9,7 @@ namespace PetShopApplication.Controllers
     {
         private readonly IPetShopRepository _repository;
         private AnimalListViewModel _listViewModel;
+        private string _selectedCategory = "All Categories";
         public AdminController(IPetShopRepository repository, IListViewModelService listViewModelService)
         {
             _repository = repository;
@@ -28,12 +29,24 @@ namespace PetShopApplication.Controllers
         [HttpPost]
         public IActionResult ShowCategory(string selectedCategory)
         {
-            var animals = _repository.GetAnimals(selectedCategory);
-
+            _selectedCategory = selectedCategory;
+            var animals = _repository.GetAnimals(_selectedCategory);
             _listViewModel.Animals = animals;
 
             return ViewComponent("AnimalList", _listViewModel);
         }
+
+        /*        [HttpPost]
+                public IActionResult DeleteAnimal(int animalId)
+                {
+                    _repository.DeleteAnimal(animalId);
+
+                    var animals = _repository.GetAnimals(_selectedCategory);
+
+                    _listViewModel.Animals = animals;
+
+                    return ViewComponent("AnimalList", _listViewModel);
+                }*/
 
         public IActionResult Update(int animalId)
         {
