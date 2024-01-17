@@ -31,6 +31,12 @@ header {
     justify-content:center;
 }
 
+.headerImage {
+    height: 70px;
+    width:100%;
+    object-fit: contain;
+}
+
 .leftPanel {
     grid-area: left;
     display:flex;

@@ -19,7 +19,7 @@
     transform:scale(1.01);
 }
 
-img {
+.cardImage {
     width: 100%;
     min-height: 240px;
     max-height: 240px;
