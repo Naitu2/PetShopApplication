@@ -1,0 +1,13 @@
+﻿.addAnimalButton {
+    border-radius: 34px;
+    border: 2px solid #101F22;
+    background: #9AB195;
+    color: #101F22;
+    width:55%;
+    font-weight:500;
+}
+
+    .addAnimalButton:hover {
+        border: 2px solid aliceblue;
+        color: aliceblue;
+    }

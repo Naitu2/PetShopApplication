@@ -6,7 +6,7 @@
     var categories = ViewBag.Categories as List<string>;
 }
 
-@section section1 {
+@section selectCategorySection {
     <select class="categorySelect">
         <option value="All Categories">All Categories</option>
         @foreach (var category in categories)

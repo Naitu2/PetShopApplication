@@ -1,11 +1,13 @@
 ﻿@model PetShopApplication.ViewComponents.AnimalListViewModel
 
+<link href="~/styles/admin.css" rel="stylesheet" />
+
 @{
     ViewData["Title"] = "Index";
     var categories = ViewBag.Categories as List<string>;
 }
 
-@section section1 {
+@section selectCategorySection {
     <select name="category" id="category" class="categorySelect">
         <option value="All Categories">All Categories</option>
         @foreach (var category in categories)
@@ -13,6 +15,10 @@
             <option value="@category">@category</option>
         }
     </select>
+}
+
+@section addAnimalSection {
+    <button class="addAnimalButton">+ Add Animal</button>
 }
 <div id="animalList">@await Component.InvokeAsync("AnimalList", Model)</div>
 

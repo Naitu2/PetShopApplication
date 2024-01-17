@@ -20,7 +20,8 @@
                 <a asp-action="Index" asp-controller="Catalog">Catalog</a>
                 <a asp-action="Index" asp-controller="Admin">Admin page</a>
             </div>
-            @RenderSection("section1", false)
+            @RenderSection("selectCategorySection", false)
+            @RenderSection("addAnimalSection", false)
         </div>
         <div class="content text-center">
             <header><img class="headerImage" src="~/images/header.png" /></header>
