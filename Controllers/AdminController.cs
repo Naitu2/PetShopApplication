@@ -51,6 +51,8 @@ namespace PetShopApplication.Controllers
 
         public IActionResult UpdateAnimal(int animalId)
         {
+            ViewBag.Categories = _repository.GetCategories();
+
             return View(_repository.GetAnimalWithCategory(animalId));
         }
 

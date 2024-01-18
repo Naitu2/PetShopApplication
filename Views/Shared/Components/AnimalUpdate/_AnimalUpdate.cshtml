@@ -7,7 +7,7 @@
     <span asp-validation-for="Name"></span>
     <br />
     <label asp-for="Age"></label>
-    <input asp-for="Age" maxlength="3" />
+    <input asp-for="Age"/>
     <span asp-validation-for="Age"></span>
     <br />
     <label asp-for="PictureName"></label>
@@ -19,7 +19,9 @@
     <span asp-validation-for="Description"></span>
     <br />
     <label asp-for="CategoryId"></label>
-    <input asp-for="CategoryId" />
+    <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
+        <option value="">Choose Category</option>
+    </select>
     <span asp-validation-for="CategoryId"></span>
     <br />
     <input type="submit" value="@(Model == null?"Create":"Update") Animal"/>
