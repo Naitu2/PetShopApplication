@@ -3,11 +3,11 @@
 <form asp-controller="Admin" asp-action="SubmitAnimal" method="post">
     <div asp-validation-summary="All"></div>
     <label asp-for="Name"></label>
-    <input asp-for="Name" />
+    <input asp-for="Name" maxlength="30" />
     <span asp-validation-for="Name"></span>
     <br />
     <label asp-for="Age"></label>
-    <input asp-for="Age" />
+    <input asp-for="Age" maxlength="3" />
     <span asp-validation-for="Age"></span>
     <br />
     <label asp-for="PictureName"></label>
@@ -15,7 +15,7 @@
     <span asp-validation-for="PictureName"></span>
     <br />
     <label asp-for="Description"></label>
-    <input asp-for="Description" />
+    <input asp-for="Description" maxlength="300" />
     <span asp-validation-for="Description"></span>
     <br />
     <label asp-for="CategoryId"></label>
