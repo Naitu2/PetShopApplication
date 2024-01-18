@@ -1,6 +1,6 @@
 ﻿@model PetShopApplication.Models.Animal
 
-<form asp-controller="Adimn" asp-action="SubmitAnimal">
+<form asp-controller="Admin" asp-action="SubmitAnimal" method="post">
     <div asp-validation-summary="All"></div>
     <label asp-for="Name"></label>
     <input asp-for="Name" />

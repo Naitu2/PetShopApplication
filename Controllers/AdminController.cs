@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PetShopApplication.Models;
 using PetShopApplication.Repositories;
 using PetShopApplication.Services;
 using PetShopApplication.ViewComponents;
@@ -50,7 +51,29 @@ namespace PetShopApplication.Controllers
 
         public IActionResult UpdateAnimal(int animalId)
         {
-            return View(_repository.GetAllAnimalInfo(animalId));
+            return View(_repository.GetAnimalWithCategory(animalId));
+        }
+
+        [HttpPost]
+        public IActionResult SubmitAnimal(Animal updatedAnimal)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_repository.AnimalExists(updatedAnimal.Id))
+                {
+                    _repository.UpdateAnimal(updatedAnimal);
+                }
+                else
+                {
+                    _repository.InsertAnimal(updatedAnimal);
+                }
+
+                return View("Index");
+            }
+            else
+            {
+                return View("UpdateAnimal");
+            }
         }
     }
 }

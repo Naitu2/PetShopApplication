@@ -49,6 +49,11 @@ namespace PetShopApplication.Repositories
             return topAnimals;
         }
 
+        public bool AnimalExists(int animalId)
+        {
+            return _context.Animals!.Any(a => a.Id == animalId);
+        }
+
         public void InsertAnimal(Animal animal)
         {
             _context.Animals!.Add(animal);
@@ -89,6 +94,13 @@ namespace PetShopApplication.Repositories
         {
             return _context!.Animals!
                            .Include(a => a.Comments)
+                           .FirstOrDefault(a => a.Id == id);
+        }
+
+        public Animal? GetAnimalWithCategory(int id)
+        {
+            return _context!.Animals!
+                           .Include(a => a.Category)
                            .FirstOrDefault(a => a.Id == id);
         }
 
