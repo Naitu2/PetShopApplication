@@ -18,7 +18,7 @@
 }
 
 @section addAnimalSection {
-    <button class="addAnimalButton">+ Add Animal</button>
+    <a asp-action="UpdateAnimal" asp-controller="Admin" class="addAnimalButton">+ Add Animal</a>
 }
 <div id="animalList">@await Component.InvokeAsync("AnimalList", Model)</div>
 

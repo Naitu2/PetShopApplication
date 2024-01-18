@@ -48,7 +48,7 @@ namespace PetShopApplication.Controllers
                     return ViewComponent("AnimalList", _listViewModel);
                 }*/
 
-        public IActionResult Update(int animalId)
+        public IActionResult UpdateAnimal(int animalId)
         {
             return View(_repository.GetAllAnimalInfo(animalId));
         }

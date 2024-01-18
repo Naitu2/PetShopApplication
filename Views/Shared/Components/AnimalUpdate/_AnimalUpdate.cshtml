@@ -1,3 +1,26 @@
 ﻿@model PetShopApplication.Models.Animal
 
-@Model.Name
+<form asp-controller="Adimn" asp-action="SubmitAnimal">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <br />
+    <label asp-for="Age"></label>
+    <input asp-for="Age" />
+    <span asp-validation-for="Age"></span>
+    <br />
+    <label asp-for="PictureName"></label>
+    <input asp-for="PictureName" />
+    <span asp-validation-for="PictureName"></span>
+    <br />
+    <label asp-for="Description"></label>
+    <input asp-for="Description" />
+    <span asp-validation-for="Description"></span>
+    <br />
+    <label asp-for="CategoryId"></label>
+    <input asp-for="CategoryId" />
+    <span asp-validation-for="CategoryId"></span>
+    <br />
+    <input type="submit" value="@(Model == null?"Create":"Update") Animal"/>
+</form>
