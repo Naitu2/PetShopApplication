@@ -1,8 +1,9 @@
 ﻿@model PetShopApplication.Models.Animal
 
-<form asp-controller="Admin" asp-action="@(Model == null?"AddAnimal":"UpdateAnimalData")" method="post">
+<form asp-controller="Admin" asp-action="@(Model == null?"AddAnimal":"UpdateAnimalData")" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="All"></div>
     <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="PictureName" />
     <label asp-for="Name"></label>
     <input asp-for="Name" maxlength="30" />
     <span asp-validation-for="Name"></span>
@@ -11,9 +12,9 @@
     <input asp-for="Age"/>
     <span asp-validation-for="Age"></span>
     <br />
-    <label asp-for="PictureName"></label>
-    <input asp-for="PictureName" />
-    <span asp-validation-for="PictureName"></span>
+    <label asp-for="UploadedImage"></label>
+    <input asp-for="UploadedImage" type="file" />
+    <span asp-validation-for="UploadedImage"></span>
     <br />
     <label asp-for="Description"></label>
     <input asp-for="Description" maxlength="300" />

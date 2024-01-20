@@ -6,7 +6,6 @@ namespace PetShopApplication.Repositories
     {
         IEnumerable<Animal> GetAnimals(string categoryName = "All Categories");
         IEnumerable<Animal> GetTwoTopAnimals();
-        bool AnimalExists(int animalId);
         void InsertAnimal(Animal animal);
         void UpdateAnimal(Animal animal);
         void DeleteAnimal(int id);

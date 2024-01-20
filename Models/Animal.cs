@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PetShopApplication.Validators;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShopApplication.Models
@@ -19,6 +20,11 @@ namespace PetShopApplication.Models
 
         [RegularExpression("^.*\\.(jpg|jpeg|png)$", ErrorMessage = "The picture name must end with .jpg, .jpeg, or .png.")]
         public string? PictureName { get; set; }
+
+        [Display(Name = "Image:")]
+        [NotMapped]
+        [AllowedExtensions([".jpg", ".jpeg", ".png"])]
+        public IFormFile? UploadedImage { get; set; }
 
         [Display(Name = "Description:")]
         [DataType(DataType.MultilineText)]

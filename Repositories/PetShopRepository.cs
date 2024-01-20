@@ -49,11 +49,6 @@ namespace PetShopApplication.Repositories
             return topAnimals;
         }
 
-        public bool AnimalExists(int animalId)
-        {
-            return _context.Animals!.Any(a => a.Id == animalId);
-        }
-
         public void InsertAnimal(Animal animal)
         {
             _context.Animals!.Add(animal);

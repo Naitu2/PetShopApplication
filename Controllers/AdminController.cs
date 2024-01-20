@@ -9,11 +9,13 @@ namespace PetShopApplication.Controllers
     public class AdminController : Controller
     {
         private readonly IPetShopRepository _repository;
+        private readonly IWebHostEnvironment _environment;
         private AnimalListViewModel _listViewModel;
         private string _selectedCategory = "All Categories";
-        public AdminController(IPetShopRepository repository, IListViewModelService listViewModelService)
+        public AdminController(IPetShopRepository repository, IListViewModelService listViewModelService, IWebHostEnvironment environment)
         {
             _repository = repository;
+            _environment = environment;
             _listViewModel = listViewModelService.GetListViewModelData("Admin");
         }
 
@@ -70,7 +72,7 @@ namespace PetShopApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateAnimalData(Animal updatedAnimal)
+        public async Task<IActionResult> UpdateAnimalData(Animal updatedAnimal)
         {
             if (!ModelState.IsValid)
             {
@@ -78,10 +80,26 @@ namespace PetShopApplication.Controllers
                 return View("UpdateAnimal", updatedAnimal);
             }
 
-            if (_repository.AnimalExists(updatedAnimal.Id))
+            if (updatedAnimal.UploadedImage != null)
             {
-                _repository.UpdateAnimal(updatedAnimal);
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(updatedAnimal.UploadedImage.FileName);
+                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images/Animals");
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await updatedAnimal.UploadedImage.CopyToAsync(stream);
+                }
+
+                updatedAnimal.PictureName = uniqueFileName;
             }
+            else if (updatedAnimal.PictureName == null)
+            {
+                updatedAnimal.PictureName = "default_no_animal";
+            }
+
+            _repository.UpdateAnimal(updatedAnimal);
+
 
             return RedirectToAction("Index");
         }
