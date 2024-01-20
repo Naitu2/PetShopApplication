@@ -13,8 +13,9 @@ namespace PetShopApplication.Models
         public string? Name { get; set; }
 
         [Display(Name = "Age:")]
+        [Required(ErrorMessage = "Please enter age.")]
         [Range(0, 150, ErrorMessage = "Age must be between 0 and 150.")]
-        public int Age { get; set; }
+        public int? Age { get; set; }
 
         [RegularExpression("^.*\\.(jpg|jpeg|png)$", ErrorMessage = "The picture name must end with .jpg, .jpeg, or .png.")]
         public string? PictureName { get; set; }
@@ -26,7 +27,7 @@ namespace PetShopApplication.Models
 
         [ForeignKey("Category")]
         [Required(ErrorMessage = "Please select a category.")]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public virtual Category? Category { get; set; }
 
         public virtual ICollection<Comment>? Comments { get; set; }

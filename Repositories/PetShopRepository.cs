@@ -65,19 +65,8 @@ namespace PetShopApplication.Repositories
             var existingAnimal = _context.Animals!.FirstOrDefault(a => a.Id == updatedAnimal.Id);
             if (existingAnimal != null)
             {
-                var entry = _context.Entry(existingAnimal);
-                foreach (var property in entry.Metadata.GetProperties())
-                {
-                    var proposedValue = entry.CurrentValues.GetValue<object>(property.Name);
-                    var existingValue = entry.OriginalValues.GetValue<object>(property.Name);
+                _context.Entry(existingAnimal).CurrentValues.SetValues(updatedAnimal);
 
-                    if (proposedValue != null && !Equals(existingValue, proposedValue))
-                    {
-                        entry.Property(property.Name).CurrentValue = proposedValue;
-                    }
-                }
-
-                //entry.State = EntityState.Modified;
                 _context.SaveChanges();
             }
         }

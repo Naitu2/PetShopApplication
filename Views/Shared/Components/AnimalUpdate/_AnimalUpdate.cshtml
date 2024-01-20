@@ -1,7 +1,8 @@
 ﻿@model PetShopApplication.Models.Animal
 
-<form asp-controller="Admin" asp-action="SubmitAnimal" method="post">
+<form asp-controller="Admin" asp-action="@(Model == null?"AddAnimal":"UpdateAnimalData")" method="post">
     <div asp-validation-summary="All"></div>
+    <input type="hidden" asp-for="Id" />
     <label asp-for="Name"></label>
     <input asp-for="Name" maxlength="30" />
     <span asp-validation-for="Name"></span>
@@ -20,7 +21,7 @@
     <br />
     <label asp-for="CategoryId"></label>
     <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
-        @* <option value="">Choose Category</option> *@
+        <option value="">Select Category</option>
     </select>
     <span asp-validation-for="CategoryId"></span>
     <br />

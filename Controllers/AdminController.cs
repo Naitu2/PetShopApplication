@@ -48,7 +48,6 @@ namespace PetShopApplication.Controllers
 
             return ViewComponent("AnimalList", _listViewModel);
         }
-
         public IActionResult UpdateAnimal(int animalId)
         {
             ViewBag.Categories = _repository.GetCategories();
@@ -57,25 +56,34 @@ namespace PetShopApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitAnimal(Animal updatedAnimal)
+        public IActionResult AddAnimal(Animal updatedAnimal)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                if (_repository.AnimalExists(updatedAnimal.Id))
-                {
-                    _repository.UpdateAnimal(updatedAnimal);
-                }
-                else
-                {
-                    _repository.InsertAnimal(updatedAnimal);
-                }
-
-                return View("Index");
-            }
-            else
-            {
+                ViewBag.Categories = _repository.GetCategories();
                 return View("UpdateAnimal");
             }
+
+            _repository.InsertAnimal(updatedAnimal);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult UpdateAnimalData(Animal updatedAnimal)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = _repository.GetCategories();
+                return View("UpdateAnimal", updatedAnimal);
+            }
+
+            if (_repository.AnimalExists(updatedAnimal.Id))
+            {
+                _repository.UpdateAnimal(updatedAnimal);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
