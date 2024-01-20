@@ -17,6 +17,9 @@ using (var scope = app.Services.CreateScope())
     var ctx = scope.ServiceProvider.GetRequiredService<PetShopContext>();
     ctx.Database.EnsureDeleted();
     ctx.Database.EnsureCreated();
+
+    var environment = scope.ServiceProvider.GetRequiredService<IWebHostEnvironment>();
+    FileService.ManageAnimalImages(environment);
 }
 
 app.UseRouting();
