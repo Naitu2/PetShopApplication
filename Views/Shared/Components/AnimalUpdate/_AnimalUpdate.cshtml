@@ -20,7 +20,7 @@
     <br />
     <label asp-for="CategoryId"></label>
     <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
-        <option value="">Choose Category</option>
+        @* <option value="">Choose Category</option> *@
     </select>
     <span asp-validation-for="CategoryId"></span>
     <br />

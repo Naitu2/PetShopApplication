@@ -1,23 +1,21 @@
 ﻿@model PetShopApplication.ViewComponents.AnimalCardViewModel
 
 <link href="~/styles/cardStyle.css" rel="stylesheet" />
-<a asp-action="@Model.Action" asp-controller="@Model.Controller" asp-route-animalId="@Model.Animal.Id">
-    <div class="card">
+<div class="card">
+    <a asp-action="@Model.Action" asp-controller="@Model.Controller" asp-route-animalId="@Model.Animal.Id">
         <img class="cardImage" src="~/images/Animals/@Model.Animal.PictureName" alt="Picture of @Model.Animal.Name" />
 
-        @if (Model.ShowDeleteButton)
-        {
-            <img class="redXsvg" src="~/images/Utility/Red_X.svg" alt="Red X svg"/>
-        }
-
         <div class="text-center">@Model.Animal.Name</div>
-    </div>
-</a>
+    </a>
+    @if (Model.ShowDeleteButton)
+    {
+        <button id="redX-@Model.Animal.Id"><img class="redXsvg" src="~/images/Utility/Red_X.svg" alt="Red X svg" /></button>
+    }
+</div>
 
-
-@* <script>
+<script>
     $(document).ready(function () {
-        $(".redXsvg").click(function () {
+        $("#redX-@Model.Animal.Id").click(function () {
             event.preventDefault();
             event.stopPropagation();
             $.ajax({
@@ -30,4 +28,4 @@
             });
         });
     });
-</script> *@
+</script>

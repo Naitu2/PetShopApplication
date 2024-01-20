@@ -37,17 +37,17 @@ namespace PetShopApplication.Controllers
             return ViewComponent("AnimalList", _listViewModel);
         }
 
-        /*        [HttpPost]
-                public IActionResult DeleteAnimal(int animalId)
-                {
-                    _repository.DeleteAnimal(animalId);
+        [HttpPost]
+        public IActionResult DeleteAnimal(int animalId)
+        {
+            _repository.DeleteAnimal(animalId);
 
-                    var animals = _repository.GetAnimals(_selectedCategory);
+            var animals = _repository.GetAnimals(_selectedCategory);
 
-                    _listViewModel.Animals = animals;
+            _listViewModel.Animals = animals;
 
-                    return ViewComponent("AnimalList", _listViewModel);
-                }*/
+            return ViewComponent("AnimalList", _listViewModel);
+        }
 
         public IActionResult UpdateAnimal(int animalId)
         {
