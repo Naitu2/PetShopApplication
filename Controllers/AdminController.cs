@@ -58,12 +58,30 @@ namespace PetShopApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddAnimal(Animal updatedAnimal)
+        public async Task<IActionResult> AddAnimal(Animal updatedAnimal)
         {
             if (!ModelState.IsValid)
             {
                 ViewBag.Categories = _repository.GetCategories();
                 return View("UpdateAnimal");
+            }
+
+            if (updatedAnimal.UploadedImage != null)
+            {
+                var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(updatedAnimal.UploadedImage.FileName);
+                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images/Animals");
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await updatedAnimal.UploadedImage.CopyToAsync(stream);
+                }
+
+                updatedAnimal.PictureName = uniqueFileName;
+            }
+            else
+            {
+                updatedAnimal.PictureName = "default_no_animal";
             }
 
             _repository.InsertAnimal(updatedAnimal);
@@ -93,13 +111,8 @@ namespace PetShopApplication.Controllers
 
                 updatedAnimal.PictureName = uniqueFileName;
             }
-            else if (updatedAnimal.PictureName == null)
-            {
-                updatedAnimal.PictureName = "default_no_animal";
-            }
 
             _repository.UpdateAnimal(updatedAnimal);
-
 
             return RedirectToAction("Index");
         }
