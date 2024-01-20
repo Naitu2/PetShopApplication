@@ -29,10 +29,12 @@ namespace PetShopApplication.Models
         [Display(Name = "Description:")]
         [DataType(DataType.MultilineText)]
         [StringLength(300, ErrorMessage = "Description cannot be more than 300 characters long.")]
+        [Required(ErrorMessage = "Description can't be empty.")]
         public string? Description { get; set; }
 
         [ForeignKey("Category")]
         [Required(ErrorMessage = "Please select a category.")]
+        [Display(Name = "Category:")]
         public int? CategoryId { get; set; }
         public virtual Category? Category { get; set; }
 

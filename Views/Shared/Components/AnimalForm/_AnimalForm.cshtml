@@ -1,30 +1,45 @@
-﻿@model PetShopApplication.Models.Animal
+﻿<link href="~/styles/animalForm.css" rel="stylesheet" />
 
-<form asp-controller="Admin" asp-action="@(Model == null?"AddAnimal":"UpdateAnimalData")" method="post" enctype="multipart/form-data">
-    <div asp-validation-summary="All"></div>
+@model PetShopApplication.Models.Animal
+
+<div class="validationMessages" asp-validation-summary="All"></div>
+
+<form class="animalForm" asp-controller="Admin" asp-action="@(Model == null?"AddAnimal":"UpdateAnimalData")" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="Id" />
     <input type="hidden" asp-for="PictureName" />
-    <label asp-for="Name"></label>
-    <input asp-for="Name" maxlength="30" />
-    <span asp-validation-for="Name"></span>
-    <br />
-    <label asp-for="Age"></label>
-    <input asp-for="Age"/>
-    <span asp-validation-for="Age"></span>
-    <br />
-    <label asp-for="UploadedImage"></label>
-    <input asp-for="UploadedImage" type="file" />
-    <span asp-validation-for="UploadedImage"></span>
-    <br />
-    <label asp-for="Description"></label>
-    <input asp-for="Description" maxlength="300" />
-    <span asp-validation-for="Description"></span>
-    <br />
-    <label asp-for="CategoryId"></label>
-    <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
-        <option value="">Select Category</option>
-    </select>
-    <span asp-validation-for="CategoryId"></span>
-    <br />
-    <input type="submit" value="@(Model == null?"Create":"Update") Animal"/>
+
+
+    <div class="propRow">
+        <div class="animalProp">
+            <label asp-for="Name"></label>
+            <input class="textInput" asp-for="Name" maxlength="30" />
+        </div>
+
+        <div class="animalProp">
+            <label asp-for="UploadedImage"></label>
+            <input class="imageUpload" asp-for="UploadedImage" type="file" />
+        </div>
+    </div>
+
+    <div class="propRow">
+        <div class="animalProp">
+            <label asp-for="Age"></label>
+            <input class="textInput" asp-for="Age" />
+        </div>
+
+        <div class="animalProp">
+            <label asp-for="CategoryId"></label>
+            <select class="categorySelect" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))">
+                <option value="">Select Category</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="description">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="textInput" maxlength="300"><</textarea>
+    </div>
+
+    <button class="submitAnimalButton" type="submit">@(Model == null ? "Create" : "Update") Animal</button>
 </form>
