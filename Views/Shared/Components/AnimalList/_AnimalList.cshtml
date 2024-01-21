@@ -1,8 +1,10 @@
 ﻿@using PetShopApplication.ViewComponents
 @model PetShopApplication.ViewComponents.AnimalListViewModel
 
+@if(Model.Animals!.Count() != 0)
+{
 <div class="list">
-    @foreach (var animal in Model.Animals)
+    @foreach (var animal in Model.Animals!)
     {
         var cardViewModel = new AnimalCardViewModel
                 {
@@ -14,4 +16,9 @@
 
         @await Component.InvokeAsync("AnimalCard", cardViewModel)
     }
-</div>
+    </div>
+}
+else
+{
+    <div class="noAnimalsMessage">There are no animals in the database right now... :(</div>
+}

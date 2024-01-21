@@ -26,7 +26,6 @@ header {
     width: 100%;
     height: 150px;
     margin:0;
-    font:bold 80px roboto;
     align-content:center;
     justify-content:center;
 }
@@ -92,4 +91,10 @@ a {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 0 32px 32px 0;
     background: #101F22;
+}
+
+.noAnimalsMessage {
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 800;
 }

@@ -3,37 +3,42 @@
 @{
     ViewData["Title"] = "Index";
 }
+@if (Model.Count() != 0)
+{
+    <h3 id="topAnimalsText">Check out our most popular animals:</h3>
 
-<h3 id="topAnimalsText">Check out our most popular animals:</h3>
-
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        @for (int i = 0; i < Model.Count(); i++)
-        {
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-label="Slide @(i + 1)"></button>
-        }
-    </div>
-    <div class="carousel-inner">
-        @foreach (var animal in Model.Select((value, index) => new { Value = value, Index = index }))
-        {
-            <div class="carousel-item @(animal.Index == 0 ? "active" : "")">
-                <a asp-action="Details" asp-controller="Catalog" asp-route-animalId="@animal.Value.Id">
-                    <img src="~/images/Animals/@animal.Value.PictureName" class="d-block carouselImage" alt="This is a picture of @animal.Value.Name">
-                </a>
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>@animal.Value.Name</h1>
-                    <p class="carouselDescription">@animal.Value.Description</p>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")" aria-label="Slide @(i + 1)"></button>
+            }
+        </div>
+        <div class="carousel-inner">
+            @foreach (var animal in Model.Select((value, index) => new { Value = value, Index = index }))
+            {
+                <div class="carousel-item @(animal.Index == 0 ? "active" : "")">
+                    <a asp-action="Details" asp-controller="Catalog" asp-route-animalId="@animal.Value.Id">
+                        <img src="~/images/Animals/@animal.Value.PictureName" class="d-block carouselImage" alt="This is a picture of @animal.Value.Name">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>@animal.Value.Name</h1>
+                        <p class="carouselDescription">@animal.Value.Description</p>
+                    </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
+}
+else
+{
+    <div class="noAnimalsMessage">There are no animals in the database right now... :(</div>
+}
