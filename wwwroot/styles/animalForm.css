@@ -24,6 +24,7 @@
     align-items: flex-start;
     gap: 5px;
     width: 45%;
+    font-weight: 500;
 }
 
     .animalProp label {
@@ -45,6 +46,7 @@ textarea {
 .description {
     text-align: start;
     width: 90%;
+    font-weight: 500;
 }
 
 .textInput {
