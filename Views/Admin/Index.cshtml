@@ -29,7 +29,7 @@
             var selectedCategory = $(this).children("option:selected").val();
             $.ajax({
                 url: '/Admin/ShowCategory',
-                type: 'POST',
+                type: 'GET',
                 data: { selectedCategory: selectedCategory },
                 success: function (result) {
                     $('#animalList').html(result);

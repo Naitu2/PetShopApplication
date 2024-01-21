@@ -25,7 +25,7 @@ namespace PetShopApplication.Controllers
 
             return View(_listViewModel);
         }
-        [HttpPost]
+        [HttpGet]
         public IActionResult ShowCategory(string selectedCategory)
         {
             var animals = _repository.GetAnimals(selectedCategory);

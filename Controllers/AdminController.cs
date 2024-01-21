@@ -29,7 +29,7 @@ namespace PetShopApplication.Controllers
             return View(_listViewModel);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult ShowCategory(string selectedCategory)
         {
             _selectedCategory = selectedCategory;
