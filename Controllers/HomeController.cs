@@ -13,7 +13,7 @@ namespace PetShopApplication.Controllers
 
         public IActionResult Index()
         {
-            return View(_repository.GetTwoTopAnimals());
+            return View(_repository.GetTwoTopAnimalsWithComments());
         }
     }
 }

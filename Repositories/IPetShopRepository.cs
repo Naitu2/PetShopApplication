@@ -5,7 +5,7 @@ namespace PetShopApplication.Repositories
     public interface IPetShopRepository
     {
         IEnumerable<Animal> GetAnimals(string categoryName = "All Categories");
-        IEnumerable<Animal> GetTwoTopAnimals();
+        IEnumerable<Animal> GetTwoTopAnimalsWithComments();
         void InsertAnimal(Animal animal);
         void UpdateAnimal(Animal animal);
         void DeleteAnimal(int id);

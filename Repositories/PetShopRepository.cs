@@ -37,7 +37,7 @@ namespace PetShopApplication.Repositories
             return query.ToList();
         }
 
-        public IEnumerable<Animal> GetTwoTopAnimals()
+        public IEnumerable<Animal> GetTwoTopAnimalsWithComments()
         {
             var topAnimals = _context.Animals!
                 .Include(a => a.Comments)

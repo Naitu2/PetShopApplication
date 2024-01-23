@@ -32,3 +32,10 @@
     font: 30px roboto;
     margin-top:50px;
 }
+
+.numOfComments {
+    font-size: 18px;
+    background-color: rgba(128, 128, 128, 0.4);
+    border-radius: 15px;
+    border: solid 1px #101F22;
+}
