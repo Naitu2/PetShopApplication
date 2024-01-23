@@ -5,7 +5,11 @@
 <div class="validationMessages" asp-validation-summary="All"></div>
 
 <form class="animalForm" asp-controller="Admin" asp-action="@(Model == null?"AddAnimal":"UpdateAnimalData")" method="post" enctype="multipart/form-data">
-    <input type="hidden" asp-for="Id" />
+
+    @if (Model != null)
+    {
+        <input type="hidden" asp-for="Id" />
+    }
     <input type="hidden" asp-for="PictureName" />
 
 

@@ -1,21 +1,21 @@
 ﻿@using PetShopApplication.ViewComponents
 @model PetShopApplication.ViewComponents.AnimalListViewModel
 
-@if(Model.Animals!.Count() != 0)
+@if (Model.Animals!.Count() != 0)
 {
-<div class="list">
-    @foreach (var animal in Model.Animals!)
-    {
-        var cardViewModel = new AnimalCardViewModel
-                {
-                    Animal = animal,
-                    ShowDeleteButton = Model.ShowDeleteButton,
-                    Action = Model.Action,
-                    Controller = Model.Controller,
-                };
+    <div class="list">
+        @foreach (var animal in Model.Animals!)
+        {
+            var cardViewModel = new AnimalCardViewModel
+                    {
+                        Animal = animal,
+                        ShowDeleteButton = Model.ShowDeleteButton,
+                        Action = Model.Action,
+                        Controller = Model.Controller,
+                    };
 
-        @await Component.InvokeAsync("AnimalCard", cardViewModel)
-    }
+            @await Component.InvokeAsync("AnimalCard", cardViewModel)
+        }
     </div>
 }
 else

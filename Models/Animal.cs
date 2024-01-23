@@ -21,15 +21,15 @@ namespace PetShopApplication.Models
         [RegularExpression("^.*\\.(jpg|jpeg|png)$", ErrorMessage = "The picture name must end with .jpg, .jpeg, or .png.")]
         public string? PictureName { get; set; }
 
-        [Display(Name = "Image:")]
         [NotMapped]
+        [Display(Name = "Image:")]
         [AllowedExtensions([".jpg", ".jpeg", ".png"])]
         public IFormFile? UploadedImage { get; set; }
 
         [Display(Name = "Description:")]
         [DataType(DataType.MultilineText)]
         [StringLength(300, ErrorMessage = "Description cannot be more than 300 characters long.")]
-        [Required(ErrorMessage = "Description can't be empty.")]
+        [Required(ErrorMessage = "Please enter description.")]
         public string? Description { get; set; }
 
         [ForeignKey("Category")]
