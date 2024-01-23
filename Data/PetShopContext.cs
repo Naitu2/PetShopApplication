@@ -19,7 +19,8 @@ namespace PetShopApplication.Data
                 new Category { Id = 1, Name = "Cats" },
                 new Category { Id = 2, Name = "Dogs" },
                 new Category { Id = 3, Name = "Birds" },
-                new Category { Id = 4, Name = "Reptiles" }
+                new Category { Id = 4, Name = "Reptiles" },
+                new Category { Id = 5, Name = "Rabbits" }
             );
 
             modelBuilder.Entity<Animal>().HasData(
@@ -87,7 +88,25 @@ namespace PetShopApplication.Data
         PictureName = "slither.jpg",
         Description = "A curious corn snake with a distinctive pattern, known for its inquisitive behavior and ease of handling.",
         CategoryId = 4
-    }
+    },
+    new Animal
+    {
+        Id = 8,
+        Name = "Bella",
+        Age = 5,
+        PictureName = "bella.jpg",
+        Description = "Bella is a gentle and friendly rabbit known for her soft fur and curious nature. She loves hopping around and exploring her surroundings, always up for a cuddle or a playful chase.",
+        CategoryId = 5
+    },
+new Animal
+{
+    Id = 9,
+    Name = "Smokey",
+    Age = 2,
+    PictureName = "smokey.jpg",
+    Description = "Smokey is a charming gray rabbit with a soft, fluffy coat. Known for her calm demeanor, she enjoys quiet moments and gentle handling. Her soothing presence makes her a favorite among those who seek a peaceful companion.",
+    CategoryId = 5
+}
 );
 
             modelBuilder.Entity<Comment>().HasData(
@@ -105,7 +124,9 @@ namespace PetShopApplication.Data
     new Comment { Id = 12, AnimalId = 2, Content = "Has a cheerful and energetic spirit." },
     new Comment { Id = 13, AnimalId = 3, Content = "Incredibly adorable and playful." },
     new Comment { Id = 14, AnimalId = 5, Content = "Bright and beautiful, with an enchanting voice." },
-    new Comment { Id = 15, AnimalId = 7, Content = "Fascinating to watch and very friendly." }
+    new Comment { Id = 15, AnimalId = 7, Content = "Fascinating to watch and very friendly." },
+    new Comment { Id = 16, AnimalId = 2, Content = "I'm allergic, but ready to take pills every day for that one." },
+    new Comment { Id = 17, AnimalId = 4, Content = "Doesn't look so smart." }
     );
         }
     }
