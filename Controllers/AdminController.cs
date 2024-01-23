@@ -81,7 +81,7 @@ namespace PetShopApplication.Controllers
             }
             else
             {
-                updatedAnimal.PictureName = "default_no_animal";
+                updatedAnimal.PictureName = "default_no_animal.jpg";
             }
 
             _repository.InsertAnimal(updatedAnimal);
