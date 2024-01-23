@@ -1,6 +1,6 @@
 ﻿@model PetShopApplication.Models.Animal
 
-    @foreach (var comment in Model.Comments)
+    @foreach (var comment in Model.Comments!)
     {
         <div class="comment">@comment.Content</div>
     }
