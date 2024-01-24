@@ -2,7 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-  /*  justify-content: normal;*/
+    padding-inline-start: 3.5%;
+    width: 100%;
 }
 
 .categorySelect {
@@ -12,5 +13,5 @@
     font-weight: 500;
     border-radius: 25px;
     border: solid 1px #101F22;
-    padding:2px;
+    padding: 2px;
 }

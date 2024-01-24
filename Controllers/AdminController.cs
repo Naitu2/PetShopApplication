@@ -20,7 +20,8 @@ namespace PetShopApplication.Controllers
 
         public IActionResult Index()
         {
-            var animals = _repository.GetAnimals();
+            var selectedCategory = HttpContext.Request.Query["SelectedCategory"];
+            var animals = _repository.GetAnimals(selectedCategory);
             ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
 
             _listViewModel.Animals = animals;
@@ -29,16 +30,11 @@ namespace PetShopApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteAnimal(int animalId)
+        public void DeleteAnimal(int animalId)
         {
             _repository.DeleteAnimal(animalId);
-
-            var animals = _repository.GetAnimals();
-
-            _listViewModel.Animals = animals;
-
-            return ViewComponent("AnimalList", _listViewModel);
         }
+
         public IActionResult UpdateAnimal(int animalId)
         {
             ViewBag.Categories = _repository.GetCategories();

@@ -19,11 +19,11 @@
             event.preventDefault();
             event.stopPropagation();
             $.ajax({
-                url: '/Admin/DeleteAnimal',
+                url: '/@Model.Controller/DeleteAnimal',
                 type: 'POST',
                 data: { animalId: @Model.Animal.Id },
                 success: function (result) {
-                    $('#animalList').html(result);
+                    window.location.reload();
                 }
             });
         });

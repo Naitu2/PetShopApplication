@@ -5,14 +5,22 @@
 @{
     ViewData["Title"] = "Index";
     var categories = ViewBag.Categories as List<string>;
+    var selectedCategory = Context.Request.Query["SelectedCategory"];
 }
 
 @section selectCategorySection {
     <select name="category" id="category" class="categorySelect">
-        <option value="All Categories">All Categories</option>
+        <option value="">All Categories</option>
         @foreach (var category in categories)
         {
-            <option value="@category">@category</option>
+            if (category == selectedCategory)
+            {
+                <option value="@category" selected>@category</option>
+            }
+            else
+            {
+                <option value="@category">@category</option>
+            }
         }
     </select>
 }
@@ -20,5 +28,5 @@
 @section addAnimalSection {
     <a asp-action="UpdateAnimal" asp-controller="Admin" class="addAnimalButton">+ Add Animal</a>
 }
-<div id="animalList">@await Component.InvokeAsync("AnimalList", Model)</div>
+@await Component.InvokeAsync("AnimalList", Model)
 

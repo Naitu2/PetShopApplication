@@ -18,9 +18,8 @@ namespace PetShopApplication.Controllers
 
         public IActionResult Index()
         {
-            /*         var selectedCategoryJson = HttpContext.Session.GetString("SelectedCategory");*/
-
-            var animals = _repository.GetAnimals(/*selectedCategoryJson*/);
+            var selectedCategory = HttpContext.Request.Query["SelectedCategory"];
+            var animals = _repository.GetAnimals(selectedCategory!);
             ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
 
             _listViewModel.Animals = animals;
@@ -28,22 +27,11 @@ namespace PetShopApplication.Controllers
             return View(_listViewModel);
         }
 
-        [HttpGet]
-        public IActionResult ShowCategory(string selectedCategory)
-        {
-            var animals = _repository.GetAnimals(selectedCategory);
-
-            HttpContext.Session.SetString("SelectedCategory", selectedCategory);
-
-            _listViewModel.Animals = animals;
-
-            return ViewComponent("AnimalList", _listViewModel);
-        }
-
         public IActionResult Details(int animalId)
         {
             return View(_repository.GetAllAnimalInfo(animalId));
         }
+
         [HttpPost]
         public IActionResult AddComment(int animalId, string commentContent)
         {

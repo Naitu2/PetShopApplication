@@ -68,7 +68,7 @@ a {
     display: grid;
     width: 100%;
     grid-area: content;
-    justify-items:center;
+    justify-items: center;
 }
 
 .mainLayout {
