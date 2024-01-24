@@ -30,6 +30,10 @@
 
 #topAnimalsText {
     font: 30px roboto;
-    margin-top:50px;
-    font-weight:300;
+    margin-top: 50px;
+    font-weight: 400;
+}
+
+.numOfComments {
+    font: 24px roboto;
 }
