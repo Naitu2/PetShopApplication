@@ -2,7 +2,7 @@
 
 @model PetShopApplication.Models.Animal
 
-<div class="validationMessages" asp-validation-summary="All"></div>
+<div class="validationMessages text-danger" asp-validation-summary="All"></div>
 
 <form class="animalForm" asp-controller="Admin" asp-action="@(Model == null?"AddAnimal":"UpdateAnimalData")" method="post" enctype="multipart/form-data">
 
@@ -11,7 +11,6 @@
         <input type="hidden" asp-for="Id" />
     }
     <input type="hidden" asp-for="PictureName" />
-
 
     <div class="propRow">
         <div class="animalProp">
