@@ -18,17 +18,22 @@ namespace PetShopApplication.Controllers
 
         public IActionResult Index()
         {
-            var animals = _repository.GetAnimals();
+            /*         var selectedCategoryJson = HttpContext.Session.GetString("SelectedCategory");*/
+
+            var animals = _repository.GetAnimals(/*selectedCategoryJson*/);
             ViewBag.Categories = _repository.GetCategories().Select(c => c.Name).ToList();
 
             _listViewModel.Animals = animals;
 
             return View(_listViewModel);
         }
+
         [HttpGet]
         public IActionResult ShowCategory(string selectedCategory)
         {
             var animals = _repository.GetAnimals(selectedCategory);
+
+            HttpContext.Session.SetString("SelectedCategory", selectedCategory);
 
             _listViewModel.Animals = animals;
 

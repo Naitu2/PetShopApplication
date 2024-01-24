@@ -22,3 +22,19 @@ else
 {
     <div class="noAnimalsMessage">There are no animals in the database right now... :(</div>
 }
+
+<script>
+    $(document).ready(function () {
+        $(".categorySelect").change(function () {
+            var selectedCategory = $(this).children("option:selected").val();
+            $.ajax({
+                url: '/Catalog/ShowCategory',
+                type: 'GET',
+                data: { selectedCategory: selectedCategory },
+                success: function (result) {
+                    $('#animalList').html(result);
+                }
+            });
+        });
+    });
+</script>
