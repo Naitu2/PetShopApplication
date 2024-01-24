@@ -9,7 +9,7 @@
     </a>
     @if (Model.ShowDeleteButton)
     {
-        <button id="redX-@Model.Animal.Id"><img class="redXsvg" src="~/images/Utility/Red_X.svg" alt="Red X svg" /></button>
+        <button id="redX-@Model.Animal.Id" class="redXButton"><img class="redXsvg" src="~/images/Utility/Red_X.svg" alt="Red X svg" /></button>
     }
 </div>
 
@@ -18,12 +18,29 @@
         $("#redX-@Model.Animal.Id").click(function () {
             event.preventDefault();
             event.stopPropagation();
-            $.ajax({
-                url: '/@Model.Controller/DeleteAnimal',
-                type: 'POST',
-                data: { animalId: @Model.Animal.Id },
-                success: function (result) {
-                    window.location.reload();
+
+            $.confirm({
+                type: 'red',
+                typeAnimated: true,
+                title: 'Are you sure?',
+                content: 'Are you sure you want to remove @Model.Animal.Name from the database?',
+                buttons: {
+                    Yes: {
+                        action: function () {
+                            $.ajax({
+                                url: '/@Model.Controller/DeleteAnimal',
+                                type: 'POST',
+                                data: { animalId: @Model.Animal.Id },
+                                success: function (result) {
+                                    window.location.reload();
+                                }
+                            });
+                        },
+                        btnClass: 'confirmDeleteButton',
+                        keys: ['enter'],
+                    },
+                    No: function () {
+                    },
                 }
             });
         });
