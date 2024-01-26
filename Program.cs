@@ -8,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPetShopRepository, PetShopRepository>();
 builder.Services.AddSingleton<IListViewModelService, ListViewModelService>();
-string connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"]!;
-builder.Services.AddDbContext<PetShopContext>(options => options.UseSqlServer(connectionString));
+string petShopconnectionString = builder.Configuration["ConnectionStrings:PetShopConnection"]!;
+builder.Services.AddDbContext<PetShopContext>(options => options.UseSqlServer(petShopconnectionString));
 
 var app = builder.Build();
 
