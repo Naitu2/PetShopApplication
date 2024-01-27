@@ -23,6 +23,12 @@ using (var scope = app.Services.CreateScope())
     FileService.ManageAnimalImages(environment);
 }
 
+if (app.Environment.IsStaging() || app.Environment.IsProduction())
+{
+    app.UseExceptionHandler("/Error/Index");
+}
+
+
 app.UseRouting();
 app.UseStaticFiles();
 
