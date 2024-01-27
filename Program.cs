@@ -28,7 +28,6 @@ if (app.Environment.IsStaging() || app.Environment.IsProduction())
     app.UseExceptionHandler("/Error/Index");
 }
 
-
 app.UseRouting();
 app.UseStaticFiles();
 
