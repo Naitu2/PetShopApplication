@@ -30,6 +30,13 @@ h1 {
 }
 
 .description {
-    color: rgb(46, 46, 46);
-    max-width: 60%;
+    font-size: 18px;
+    word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    border: solid 1px #101F22;
+    width: 60%;
+    text-align: center;
+    padding: 2%;
+    font-weight: 470;
 }
