@@ -19,7 +19,7 @@
     word-wrap: break-word;
     white-space: pre-wrap;
     background-color: rgba(128, 128, 128, 0.4);
-    border-radius: 25px;
+    border-radius: 15px;
     border: solid 1px #101F22;
 }
 
@@ -30,5 +30,10 @@
 
 #topAnimalsText {
     font: 30px roboto;
-    margin-top:50px;
+    margin-top: 50px;
+    font-weight: 400;
+}
+
+.numOfComments {
+    font: 24px roboto;
 }

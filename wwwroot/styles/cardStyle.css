@@ -10,18 +10,46 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
     font: bold 36px roboto;
-    color:#101F22;
+    color: #101F22;
     background: #65815F;
+    position: relative;
 }
 
-.card:hover{
-    opacity:0.8;
-    transform:scale(1.01);
-}
+    .card:hover {
+        opacity: 0.8;
+        transform: scale(1.01);
+    }
 
 .cardImage {
     width: 100%;
     min-height: 240px;
     max-height: 240px;
-    object-fit:cover;
+    object-fit: cover;
 }
+
+.redXsvg {
+    width: 40px;
+    height: 40px;
+}
+
+    .redXsvg:hover {
+        opacity: 0.8;
+        transform: scale(1.2);
+        filter: drop-shadow(2px 2px 4px #000);
+    }
+
+.redXButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+}
+
+.confirmDeleteButton {
+    background: #e74c3c;
+}
+
+    .confirmDeleteButton:hover {
+        background: #DA2E1B;
+    }

@@ -4,32 +4,24 @@
 @{
     ViewData["Title"] = "Index";
     var categories = ViewBag.Categories as List<string>;
+    var selectedCategory = Context.Request.Query["SelectedCategory"];
 }
 
-@section section1 {
-    <select name="category" id="category" class="categorySelect">
-        <option value="All Categories">All Categories</option>
+@section selectCategorySection {
+    <select class="categorySelect">
+        <option value="">All Categories</option>
         @foreach (var category in categories)
         {
-            <option value="@category">@category</option>
+            if (category == selectedCategory)
+            {
+                <option value="@category" selected>@category</option>
+            }
+            else
+            {
+                <option value="@category">@category</option>
+            }
         }
     </select>
 }
 
-<div id="animalList">@await Component.InvokeAsync("AnimalList", Model)</div>
-
-<script>
-    $(document).ready(function () {
-        $("#category").change(function () {
-            var selectedCategory = $(this).children("option:selected").val();
-            $.ajax({
-                url: '/Catalog/ShowCategory',
-                type: 'POST',
-                data: { selectedCategory: selectedCategory },
-                success: function (result) {
-                    $('#animalList').html(result);
-                }
-            });
-        });
-    });
-</script>
+@await Component.InvokeAsync("AnimalList", Model)

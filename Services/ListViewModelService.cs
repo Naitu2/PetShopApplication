@@ -12,7 +12,7 @@ namespace PetShopApplication.Services
                     return new AnimalListViewModel
                     {
                         ShowDeleteButton = true,
-                        Action = "Update",
+                        Action = "UpdateAnimal",
                         Controller = "Admin",
                     };
 

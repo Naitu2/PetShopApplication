@@ -1,17 +1,48 @@
 ﻿@using PetShopApplication.ViewComponents
 @model PetShopApplication.ViewComponents.AnimalListViewModel
+@{var selectedCategory = Context.Request.Query["SelectedCategory"];}
 
-<div class="list">
-    @foreach (var animal in Model.Animals)
-    {
-        var cardViewModel = new AnimalCardViewModel
-                {
-                    Animal = animal,
-                    ShowDeleteButton = Model.ShowDeleteButton,
-                    Action = Model.Action,
-                    Controller = Model.Controller,
-                };
+@if (Model.Animals!.Count() != 0)
+{
+    <div class="list">
+        @foreach (var animal in Model.Animals!)
+        {
+            var cardViewModel = new AnimalCardViewModel
+                    {
+                        Animal = animal,
+                        ShowDeleteButton = Model.ShowDeleteButton,
+                        Action = Model.Action,
+                        Controller = Model.Controller,
+                    };
 
-        @await Component.InvokeAsync("AnimalCard", cardViewModel)
-    }
-</div>
+            @await Component.InvokeAsync("AnimalCard", cardViewModel)
+        }
+    </div>
+}
+else
+{
+    <div class="noAnimalsMessage">There are no animals @(string.IsNullOrWhiteSpace(selectedCategory) ? "in the database" : $"in \"{selectedCategory}\" category") right now... :(</div>
+}
+
+<script>
+    $(document).ready(function () {
+        $(".categorySelect").change(function () {
+            var selectedCategory = $(this).children("option:selected").val();
+
+            var newUrl = '/@Model.Controller?selectedCategory=' + selectedCategory;
+
+            history.replaceState(null, '', newUrl);
+
+            window.location.href = newUrl;
+
+            // $.ajax({
+            //     url: '/@Model.Controller/ShowCategory',
+            //     type: 'GET',
+            //     data: { selectedCategory: selectedCategory },
+            //     success: function (result) {
+            //         $('#animalList').html(result);
+            //     }
+            // });
+        });
+    });
+</script>

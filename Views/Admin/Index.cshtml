@@ -1,34 +1,32 @@
 ﻿@model PetShopApplication.ViewComponents.AnimalListViewModel
 
+<link href="~/styles/admin.css" rel="stylesheet" />
+
 @{
     ViewData["Title"] = "Index";
     var categories = ViewBag.Categories as List<string>;
+    var selectedCategory = Context.Request.Query["SelectedCategory"];
 }
 
-@section section1 {
+@section selectCategorySection {
     <select name="category" id="category" class="categorySelect">
-        <option value="All Categories">All Categories</option>
+        <option value="">All Categories</option>
         @foreach (var category in categories)
         {
-            <option value="@category">@category</option>
+            if (category == selectedCategory)
+            {
+                <option value="@category" selected>@category</option>
+            }
+            else
+            {
+                <option value="@category">@category</option>
+            }
         }
     </select>
 }
-<div id="animalList">@await Component.InvokeAsync("AnimalList", Model)</div>
 
+@section addAnimalSection {
+    <a asp-action="UpdateAnimal" asp-controller="Admin" class="addAnimalButton">+ Add Animal</a>
+}
+@await Component.InvokeAsync("AnimalList", Model)
 
-<script>
-    $(document).ready(function () {
-        $("#category").change(function () {
-            var selectedCategory = $(this).children("option:selected").val();
-            $.ajax({
-                url: '/Admin/ShowCategory',
-                type: 'POST',
-                data: { selectedCategory: selectedCategory },
-                success: function (result) {
-                    $('#animalList').html(result);
-                }
-            });
-        });
-    });
-</script>

@@ -9,7 +9,7 @@
 
 <div class="card">
     <h1>@Html.DisplayFor(model => model.Name)</h1>
-    <div><img class="animalImage" src="~/images/@Model.PictureName" alt="This is a picture of @Model.Name"></div>
+    <div><img class="animalImage" src="~/images/Animals/@Model.PictureName" alt="This is a picture of @Model.Name"></div>
     <hr width="50%">
     <div class="ageCategory">
         <div>@Html.DisplayFor(model => model.Age) year@(Model.Age == 1 ? "" : "s") old</div>
@@ -50,5 +50,4 @@
             });
         });
     });
-
 </script>

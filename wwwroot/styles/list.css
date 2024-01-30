@@ -2,10 +2,16 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    justify-content: center;
+    padding-inline-start: 3.5%;
+    width: 100%;
 }
 
 .categorySelect {
     margin: 15px;
-    justify-self: center;
+    background: #9AB195;
+    color: #101F22;
+    font-weight: 500;
+    border-radius: 25px;
+    border: solid 1px #101F22;
+    padding: 2px;
 }
